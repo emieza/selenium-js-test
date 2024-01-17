@@ -30,11 +30,11 @@ class BasePhpTest {
 		console.log("Closing PHP server...");
 		// parem server
 		await this.stopServer();
+        // deixem temps perquè es tanquin els processos
+		await this.driver.sleep(2000);
 		// tanquem browser
 		console.log("Closing Selenium driver...");
         await this.driver.quit();
-        // deixem temps perquè es tanquin els processos
-		//await this.driver.sleep(2000);
 	}
 
 	async run() {

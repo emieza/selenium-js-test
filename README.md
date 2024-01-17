@@ -6,6 +6,7 @@
 Posa els arxius del teu projecte a la carepta ```src```:
 
 Per posar en marxa el projecte:
+
     $ cd src
     $ php -S 0.0.0.0:8000
 
