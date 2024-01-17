@@ -1,23 +1,13 @@
-# Exercici de login i registre en Cordova
-
-Enunciat de l'exercici a resoldre utiltizant Apache Cordova:
-https://bytes.cat/introduccio_javascript#exercici_de_login_i_registre
-
-Apunts de Cordova:
-https://bytes.cat/cordova
-
-Instal·lació de Cordova:
-https://bytes.cat/cordova_install
+# Plantilla de projecte amb tests amb Selenium i Javascript
 
 
 ## Desenvolupament
 
-Un cop instal·lat Apache Cordova pots posar en marxa el projecte amb:
+Posa els arxius del teu projecte a la carepta ```src```:
 
-    $ cordova platform add browser
-    $ cordova run browser
-
-Caldrà que desenvolupis el codi a la carpeta www/ per complir amb els tests.
+Per posar en marxa el projecte:
+    $ cd src
+    $ php -S 0.0.0.0:8000
 
 
 ## Tests
@@ -37,15 +27,15 @@ Per executar els tests:
 
     $ cd .test
     $ npm install
-    $ node 01-login-ok.js
+    $ node 01-page-h1.js
 
 Si els vols executar en mode HEADLESS:
 
-    $ HEADLESS=true node 01-login-ok.js
+    $ HEADLESS=true node 01-page-h1.js
 
 Si tens Chrome instal·lat i vols executar-hi els tests:
 
-    $ CHROME_TESTS=true node 01-login-ok.js
+    $ CHROME_TESTS=true node 01-page-h1.js
 
 
 ...i així successivament amb la resta de tests en la carpeta. Cadascun hauria de donar com a resultat "TEST OK".

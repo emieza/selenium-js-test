@@ -5,7 +5,7 @@ const { spawn } = require("child_process");
 const assert = require('assert');
 
 
-class BaseCordovaTest {
+class BasePhpTest {
 
 	constructor() {
 		console.log("Constructing...")
@@ -20,19 +20,21 @@ class BaseCordovaTest {
 		console.log("BROWSER:"+this.browser);
 
 		// run server and setup driver
-		await this.runServer( "cordova", ["serve"] );
+		await this.runServer( "../run.sh", [] );
 		await this.setupDriver();
         // deixem temps a que el servidor es posi en marxa
         await this.driver.sleep(2000);
     }
 
 	async tearDown() {
+		console.log("Closing PHP server...");
 		// parem server
 		await this.stopServer();
 		// tanquem browser
+		console.log("Closing Selenium driver...");
         await this.driver.quit();
         // deixem temps perquè es tanquin els processos
-		await this.driver.sleep(2000);
+		//await this.driver.sleep(2000);
 	}
 
 	async run() {
@@ -105,7 +107,7 @@ class BaseCordovaTest {
 }
 
 
-exports.BaseCordovaTest = BaseCordovaTest;
+exports.BasePhpTest = BasePhpTest;
 
 
 

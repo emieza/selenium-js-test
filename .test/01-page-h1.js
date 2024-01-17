@@ -1,17 +1,17 @@
 // carreguem les llibreries
-const { BaseCordovaTest } = require("./BaseCordovaTest.js")
+const { BasePhpTest } = require("./BasePhpTest.js")
 const { By, until } = require("selenium-webdriver");
 const assert = require('assert');
 
 // heredem una classe amb un sol mètode test()
 // emprem this.driver per utilitzar Selenium
 
-class MyTest extends BaseCordovaTest
+class MyTest extends BasePhpTest
 {
 	async test() {
         // testejem LOGIN CORRECTE usuari predefinit
         //////////////////////////////////////////////////////
-        await this.driver.get("http://localhost:8000/browser/www/");
+        /*await this.driver.get("http://localhost:8000/browser/www/");
         await this.driver.findElement(By.id("usuari")).sendKeys("ieti");
         await this.driver.findElement(By.id("contrasenya")).sendKeys("cordova");
         await this.driver.findElement(By.xpath("//button[text()='Login']")).click();
@@ -23,6 +23,12 @@ class MyTest extends BaseCordovaTest
         let assertMessage = "Login exitós";
         assert(alertText==assertMessage,"ERROR TEST: l'usuari ieti/cordova hauria d'entrar amb el missatge '"+assertMessage+"' en un alert.");
         await alert.accept();
+        */
+
+        await this.driver.get("http://localhost:8000/");
+        var text = await this.driver.findElement(By.tagName("h1")).getText();
+
+        assert( text=="Projecte base", "Títol H1 de la pàgina incorrecte");
 
         console.log("TEST OK");
 	}
